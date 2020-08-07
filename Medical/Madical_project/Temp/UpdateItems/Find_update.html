@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="file:///home/devender/Desktop/practice/django/Font%20Awesome/fontawesome-free-5.14.0-web/css/all.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <title>Update page</title>
+</head>
+<body>
+        <div>
+            <div style="margin: auto;">
+                <div style="text-align: center;margin-top: 8px;background: teal;font-weight: bold;">
+                    <span style="font-size: 60px;">MathMadical</span>
+                </div>
+            </div>
+            <br>
+            <br>
+
+             <div>
+                    <div class="field">
+                        <div class="control">
+                            <form action="/find_update/" method="POST">
+                                {% csrf_token %}
+                                <div style="margin: auto;width: 50%;display: flex;">
+                                    <input type="search" class="input is-success" placeholder="Search" name="Search">
+                                    <button type="submit" class="button is-success" style="margin-left: 5px;">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+            <div>
+                {% if data %}
+                        <div>
+
+                            <section class="section">
+                                <table class="table" style="width: 100%;margin: auto;">
+                                    <thead>
+                                        <tr>
+                                            <th>Product name</th>
+                                            <th>Date</th>
+                                            <th>Company name</th>
+                                            <th>Saller Name</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in data %}
+                                        <tr>
+                                            <td>{{i.M_name}}</td>
+                                            <td>{{i.M_date}}</td>
+                                            <td>{{i.M_comapany}}</td>
+                                            <td>{{i.M_saller}}</td>
+                                            <td> <a href="/update/{{i.id}}/"> <i class='fas fa-pencil-alt' style='font-size:18px;'>
+                                                                              </i> 
+                                                </a> 
+                                            </td>
+                                            <td style="color: red;"> <i class="fas fa-trash-alt"></i> </td>
+                                        {% endfor %}
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+                    {% else %}
+                    <div style="text-align: center;font-size: 25px;font-weight: bold;">
+                        <br>
+                        <br>
+                        <h2>Result is not fund....</h2>
+                    </div>
+            </div>    
+
+            {% endif %}
+            </div>
+        </div>
+                
+</body>
+</html>

@@ -1,0 +1,145 @@
+<style>
+/* .artclass{ */
+    
+.NameOFproduct{
+    /* padding-left: 230px; */
+    width: 100%;
+    /* margin: auto; */
+    /* font-size: 35px; */
+    font-weight: bold;
+}
+.TitleOFproduct{
+    width: 74%;
+    /* font-size: 25px; */
+    font-weight: bold;
+}
+/* .Heading{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 2px;
+    margin-bottom: 5px;
+} */
+
+a{
+    text-decoration: none;
+}
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>View page</title>
+</head>
+<body>
+    
+<script language="javascript" type="text/javascript">
+
+/*    var del = document.getElementById("Del")
+    if(del.onclick())
+    {
+        console.log("clicked")
+    }
+*/
+
+    $(document).ready(()=>{
+        $("#Del").click(()=>{
+//        console.log("clicked")
+        $("#deletePopup").addClass("is-active")
+        //$(".modal-close").removeClass("is-active")
+    })
+
+    $(".modal-close").click(()=>{
+        $("#deletePopup").removeClass("is-active")
+    })
+    
+    $(".close").click(()=>{
+        $("#deletePopup").removeClass("is-active")
+    })
+
+    })
+
+
+</script>
+
+    <div class="modal" id="deletePopup">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h2 style="margin-bottom: 6px;font-size: 30px;font-weight: bold;">Do You want to delete it ?</h2>
+                <div class="columns">
+                    <div class="column is-2">
+                        <button class="button is-danger">
+                            <a href="/delete/{{D.id}}/">Delete</a>
+                        </button>
+                    </div>
+                    <div class="column is-2 close">
+                        <button class="button is-primary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        <!-- Any other Bulma elements you want -->
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+        <div style="text-align: center;margin-top: 8px;background: teal;font-weight: bold;">
+            <span style="text-align: center;font-size: 60px;">MathMadical</span>
+        </div>
+    <br>
+    <br>
+        <article class="panel is-primary" style="width: 1274px;margin: auto;">
+            <p class="panel-heading is-large">View</p>
+                <p class="panel-tabs" style="font-size: 19px;font-weight: bold;">
+                    <a class="is-active" id="Del"> Delete</a>
+                    <a class="is-active" href="/update/{{D.id}}/"> Update</a>
+                    <a class="is-active" href="/addblock/"> Add</a>
+                
+                </p>
+                <a class="panel-block is-active">
+                    <div class="TitleOFproduct">
+                        <span >Name:</span>
+                    </div>
+                    <div class="NameOFproduct">
+                        <span >{{D.M_name}}</span>
+                    </div>
+                    
+                </a>
+                <a class="panel-block is-active">
+                    <div class="TitleOFproduct">
+                        <span >Price:</span>
+                    </div>
+                    <div class="NameOFproduct"> 
+                        <span class="NameOFproduct">{{D.M_price}}</span>
+                    </div>
+                    
+                </a>
+                <a class="panel-block is-active">
+                    <span class="TitleOFproduct">Quantity:</span>
+                    <span class="NameOFproduct">{{D.M_quantity}}</span>
+                </a>
+                <a class="panel-block is-active">
+                    <span class="TitleOFproduct">Saller</span>
+                    <span class="NameOFproduct">{{D.M_saller}}</span>
+                </a>
+                <a class="panel-block is-active">
+                    <span class="TitleOFproduct">Name of Company</span>
+                    <span class="NameOFproduct">{{D.M_comapany}}</span>
+                </a>
+                <a class="panel-block is-active">
+                    <span class="TitleOFproduct">Total amount</span>
+                    <span class="NameOFproduct">{{D.M_amount}}</span>
+                </a>
+                <a class="panel-block is-active">
+                    <span class="TitleOFproduct">Date & Time</span>
+                    <span class="NameOFproduct">{{D.M_date}}</span>
+                </a>
+
+        </article>
+</body>
+</html>

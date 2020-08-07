@@ -1,0 +1,89 @@
+<style>
+    .order_entery{
+        width: 50%;
+        /* line-height: 25px; */
+        padding-left: 18px;
+        line-height: 25px;
+    }
+    </style>
+    
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+        <title>add page</title>
+    </head>
+    <body bgcolor="whitesmoke">
+    
+            <div style="text-align: center;margin-top: 8px;background: teal;font-weight: bold;">
+                <span style="text-align: center;font-size: 60px;">MathMadical</span>
+            </div>
+    
+            <div style="padding-right: 50px;">
+                <div style="float: right;
+                font-size: 25px;
+                padding: 28px;
+                font-weight: bold;">
+                    <span style="padding-right: 60px;">Delete</span>
+                    <span>Update</span>
+                </div>
+            </div>
+    
+    
+            <div style="margin-top: 60px;">
+                <div>
+                    <!-- <img src="icons8-medical-bag-48.png" width="20%" height="50px"> -->
+                </div>
+                <div class="order_entery" >
+                    <form action="/upd/" method="POST">
+                        {% csrf_token %}
+                        <div class="field">
+                            <div class="control">
+                                <label for="">Name Madison</label>
+                                <input type="hidden" name="id" value="{{V.id}}"/>
+                                <input type="text" class="input is-primary" name="name" value="{{V.M_name}}">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label for="">Price</label>
+                                <input type="text" class="input is-primary" name="price" value="{{V.M_price}}">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label for="">Quantity</label>
+                                <input type="text" class="input is-primary" name="quantity" value="{{V.M_quantity}}">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label for="">Name of Saller</label>
+                                <input type="text" class="input is-primary" name="saller" value="{{V.M_saller}}">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label for="">Name of Company</label>
+                                <input type="text" class="input is-primary" name="company" value="{{V.M_comapany}}">
+                            </div>
+                        </div>
+                        <!-- <div class="field">
+                            <div class="control">
+                                <label for="">Total price</label>
+                                <input type="text" placeholder="total_price" class="input is-primary" name="total" >
+                            </div>
+                        </div> -->
+                        <br>
+                        <div>
+                            <button type="submit" class="button is-primary" style="width: 250px;">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </body>
+    </html>
